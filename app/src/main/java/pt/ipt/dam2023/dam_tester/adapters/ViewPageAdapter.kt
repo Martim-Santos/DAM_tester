@@ -1,10 +1,12 @@
-package pt.ipt.dam2023.dam_tester
+package pt.ipt.dam2023.dam_tester.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import pt.ipt.dam2023.dam_tester.BlankFragment
 import pt.ipt.dam2023.dam_tester.fragmentos.Camara
 import pt.ipt.dam2023.dam_tester.fragmentos.Creditos
+import pt.ipt.dam2023.dam_tester.fragmentos.Galeria
 import pt.ipt.dam2023.dam_tester.fragmentos.MenuPrincipal
 
 
@@ -18,7 +20,7 @@ class ViewPageAdapter(fragmentActivity:FragmentActivity): FragmentStateAdapter(f
         return when(position) {
             0 -> MenuPrincipal()
             1 -> Camara()
-            2 -> BlankFragment()
+            2 -> Galeria()
             3 -> Creditos()
             else -> MenuPrincipal()
         }

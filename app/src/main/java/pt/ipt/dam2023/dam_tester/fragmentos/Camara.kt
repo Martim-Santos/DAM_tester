@@ -16,11 +16,11 @@ import pt.ipt.dam2023.dam_tester.R
 import pt.ipt.dam2023.dam_tester.converter.ImagetoBase64
 import pt.ipt.dam2023.dam_tester.model.APIResult
 import pt.ipt.dam2023.dam_tester.model.Foto
-import pt.ipt.dam2023.dam_tester.service.ImageService
 import pt.ipt.dam2023.dam_tester.service.RetrofitInitializer
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.random.Random
 
 class Camara:Fragment() {
     lateinit var button: Button
@@ -46,6 +46,7 @@ class Camara:Fragment() {
 
         button.setOnClickListener {
             capturePhoto()
+            addDummyFoto()
         }
 
         return view
@@ -61,6 +62,14 @@ class Camara:Fragment() {
             val data: Intent? = result.data
             imageView.setImageBitmap(data?.extras?.get("data") as Bitmap)
             fotogarafia = ImagetoBase64().encodeImage(bm = data?.extras?.get("data") as Bitmap)
+        }
+    }
+
+    fun addDummyFoto() {
+        val i = Random.nextInt()
+        val imagem = Foto("nome: "+ i, "fotografia "+ fotogarafia,"Data: " + currentDateTime ,"id: "+ i )
+        addFoto(imagem) {
+
         }
     }
 

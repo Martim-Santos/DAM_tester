@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registar"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toTopOf="@id/RegisterEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/RegisterEmail"
+        android:layout_width="279dp"
+        android:layout_height="41dp"
+        android:ems="10"
+        android:hint="Nome de Utilizador"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@id/RegisterPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView11" />
+
+    <EditText
+        android:id="@+id/RegisterPassword"
+        android:layout_width="273dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="Palavra-passe"
+        android:inputType="textPassword"
+        android:passwordToggleEnabled="true"
+        app:layout_constraintBottom_toTopOf="@id/RepeatRegisterPass"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RegisterEmail" />
+
+    <EditText
+        android:id="@+id/RepeatRegisterPass"
+        android:layout_width="281dp"
+        android:layout_height="55dp"
+        android:ems="10"
+        android:hint="Palavra-passe"
+        android:inputType="textPassword"
+        android:passwordToggleEnabled="true"
+        app:layout_constraintBottom_toTopOf="@+id/btRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RegisterPassword" />
+
+    <Button
+        android:id="@+id/btRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        app:layout_constraintBottom_toTopOf="@+id/btLog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/RepeatRegisterPass" />
+
+    <TextView
+        android:id="@+id/btLog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Já tem conta? Faça autenticação!"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btRegister"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

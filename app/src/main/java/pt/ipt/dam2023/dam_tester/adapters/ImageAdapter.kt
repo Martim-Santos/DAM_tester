@@ -26,11 +26,9 @@ class ImageAdapter (private val images: List<Foto>, private val context: Context
         }
     }
 
-
     override fun getItemCount(): Int {
         return images.size
     }
-
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         fun bindView(image: Foto) {

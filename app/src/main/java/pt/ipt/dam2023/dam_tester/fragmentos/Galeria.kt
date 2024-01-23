@@ -14,11 +14,11 @@ class Galeria : Fragment() {
         super.onCreate(savedInstanceState)
         //   setContentView(R.layout.galeria)
 
-        listNotes()
+        listFotos()
 
     }
 
-    private fun listNotes() {
+    private fun listFotos() {
 
         val call = RetrofitInitializer().imageService().list()
         call.enqueue(object : Callback<Fotos> {

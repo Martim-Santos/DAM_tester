@@ -16,4 +16,5 @@ class RetrofitInitializer {
         .build()
 
     fun imageService() = retrofit.create(ImageService::class.java)
+    fun utilizadorService() = retrofit.create(UtilizadorService::class.java)
 }

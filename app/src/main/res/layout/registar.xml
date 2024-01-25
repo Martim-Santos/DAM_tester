@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:text="Registar"
         android:textSize="24dp"
-        app:layout_constraintBottom_toTopOf="@id/RegisterEmail"
+        app:layout_constraintBottom_toTopOf="@id/RegisterNome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,17 +23,18 @@
         android:layout_width="279dp"
         android:layout_height="41dp"
         android:ems="10"
-        android:hint="Nome de Utilizador"
+        android:hint="Email do Utilizador"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@id/RegisterPassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView11" />
+        app:layout_constraintTop_toBottomOf="@id/RegisterNome" />
 
     <EditText
         android:id="@+id/RegisterPassword"
-        android:layout_width="273dp"
-        android:layout_height="48dp"
+        android:layout_width="279dp"
+        android:layout_height="41dp"
         android:ems="10"
         android:hint="Palavra-passe"
         android:inputType="textPassword"
@@ -46,10 +47,10 @@
 
     <EditText
         android:id="@+id/RepeatRegisterPass"
-        android:layout_width="281dp"
-        android:layout_height="55dp"
+        android:layout_width="279dp"
+        android:layout_height="41dp"
         android:ems="10"
-        android:hint="Palavra-passe"
+        android:hint="Confirmar Palavra-passe"
         android:inputType="textPassword"
         android:passwordToggleEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/btRegister"
@@ -67,7 +68,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/RepeatRegisterPass" />
 
-    <TextView
+    <Button
         android:id="@+id/btLog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -78,5 +79,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btRegister"
         />
+
+    <EditText
+        android:id="@+id/RegisterNome"
+        android:layout_width="279dp"
+        android:layout_height="41dp"
+        android:ems="10"
+        android:hint="Nome do Utilizador"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@id/RegisterEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView11" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,7 +14,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import pt.ipt.dam2023.dam_tester.R
 import pt.ipt.dam2023.dam_tester.converter.ImagetoBase64
-import pt.ipt.dam2023.dam_tester.model.APIResult
+import pt.ipt.dam2023.dam_tester.model.APIResultFoto
 import pt.ipt.dam2023.dam_tester.model.Foto
 import pt.ipt.dam2023.dam_tester.service.RetrofitInitializer
 import retrofit2.Call
@@ -73,14 +73,14 @@ class Camara:Fragment() {
         }
     }
 
-    fun addFoto(foto : Foto, onResult:(APIResult?)-> Unit){
+    fun addFoto(foto : Foto, onResult:(APIResultFoto?)-> Unit){
         var call = RetrofitInitializer().imageService().addFoto(fotogarafia,"batata", currentDateTime)
-        call.enqueue(object : Callback<APIResult> {
-            override fun onFailure(call: Call<APIResult>, t: Throwable) {
+        call.enqueue(object : Callback<APIResultFoto> {
+            override fun onFailure(call: Call<APIResultFoto>, t: Throwable) {
                 t.printStackTrace()
                 onResult(null)
             }
-            override fun onResponse( call: Call<APIResult>, response: Response<APIResult>) {
+            override fun onResponse(call: Call<APIResultFoto>, response: Response<APIResultFoto>) {
                 val addedNote = response.body()
                 onResult(addedNote)
             }

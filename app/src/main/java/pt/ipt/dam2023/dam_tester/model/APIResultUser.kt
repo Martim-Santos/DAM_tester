@@ -5,6 +5,5 @@ import com.google.gson.annotations.SerializedName
 data class APIResultUser(
     @SerializedName("Nome") val Nome: String?,
     @SerializedName("pass") val pass: String?,
-    @SerializedName("mail") val mail: String?,
-    @SerializedName("Autenticacao") val Aut: String?
+    @SerializedName("mail") val mail: String?
 )

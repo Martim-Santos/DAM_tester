@@ -67,14 +67,14 @@ class Camara:Fragment() {
 
     fun addDummyFoto() {
         val i = Random.nextInt()
-        val imagem = Foto("nome: "+ i, "fotografia "+ fotogarafia,"Data: " + currentDateTime ,"id: "+ i )
+        val imagem = Foto("nome: "+ i, "fotografia "+ fotogarafia,"Data: " + currentDateTime ,)
         addFoto(imagem) {
 
         }
     }
 
     fun addFoto(foto : Foto, onResult:(APIResultFoto?)-> Unit){
-        var call = RetrofitInitializer().imageService().addFoto(fotogarafia,"batata", currentDateTime)
+        var call = RetrofitInitializer().imageService().addFoto(fotogarafia, foto.nome , currentDateTime)
         call.enqueue(object : Callback<APIResultFoto> {
             override fun onFailure(call: Call<APIResultFoto>, t: Throwable) {
                 t.printStackTrace()

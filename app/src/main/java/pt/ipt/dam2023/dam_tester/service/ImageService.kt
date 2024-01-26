@@ -13,7 +13,7 @@ import java.util.Date
 interface ImageService {
 
     @GET("fotos")
-    fun list(user: String?): Call<Fotos>
+    fun list(): Call<Fotos>
 
     @FormUrlEncoded
     @POST("fotos")
@@ -22,4 +22,6 @@ interface ImageService {
                 @Field("data") date: Date,
                 @Field("user") user: String?
     ): Call<APIResultFoto>
+
+    fun addFoto(codigo: String?, nome: String, date: Date): Call<APIResultFoto>
 }

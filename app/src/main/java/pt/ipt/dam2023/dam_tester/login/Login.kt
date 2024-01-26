@@ -7,8 +7,6 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import pt.ipt.dam2023.dam_tester.R
-import pt.ipt.dam2023.dam_tester.fragmentos.Galeria
-import pt.ipt.dam2023.dam_tester.model.Fotos
 import pt.ipt.dam2023.dam_tester.model.Utilizador
 import pt.ipt.dam2023.dam_tester.model.Utilizadores
 import pt.ipt.dam2023.dam_tester.service.RetrofitInitializer
@@ -34,20 +32,35 @@ class Login : AppCompatActivity() {
 
     }
 
-    fun checkEmailExistenceForLogin(emailToCheck: String, userList: List<Utilizador>): Boolean {
-        return userList.any { it.mail == emailToCheck }
-    }
-
     private fun enterLogin() {
-        verificarConta(Email, Password) {
-            setContentView(R.layout.activity_main)
+        verificarMail(Email) {
+            verificarPass(Password){
+                setContentView(R.layout.activity_main)
+            }
         }
 
 
     }
 
-    fun verificarConta(mail: EditText, pass: EditText, function: () -> Unit){
+    fun verificarMail(mail: EditText, function: () -> Unit){
         var call = RetrofitInitializer().utilizadorService().getmail(mail)
+        call.enqueue(object : Callback<Utilizadores> {
+            override fun onResponse(call: Call<Utilizadores>, response: Response<Utilizadores>) {
+                if (response.isSuccessful) {
+                    val post = response.body()
+                    // Handle the retrieved post data
+                } else {
+                    // Handle error
+                    Toast.makeText(this@Login, "Este email não existe.", Toast.LENGTH_SHORT).show()
+                }
+            }
+            override fun onFailure(call: Call<Utilizadores>, t: Throwable) {
+            }
+        })
+    }
+
+    fun verificarPass(pass: EditText, function: () -> Unit){
+        var call = RetrofitInitializer().utilizadorService().getpass(pass)
         call.enqueue(object : Callback<Utilizadores> {
             override fun onResponse(call: Call<Utilizadores>, response: Response<Utilizadores>) {
                 if (response.isSuccessful) {

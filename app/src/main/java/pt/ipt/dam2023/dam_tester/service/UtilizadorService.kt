@@ -14,8 +14,14 @@ interface UtilizadorService {
     @GET("users")
     fun getUser(): Call<Utilizadores>
 
-    @GET("users")
+    @GET("users/{mail}")
     fun getmail(@Path("mail") mail: EditText): Call<Utilizadores>
+
+    @GET("users/{pass}")
+    fun getpass(@Path("pass") pass: EditText): Call<Utilizadores>
+
+    @GET("users/{nome}")
+    fun getname(@Path("nome") nome: String): Call<Utilizadores>
 
     @POST("users")
     fun addUser(@Field("Nome") Nome: String?,

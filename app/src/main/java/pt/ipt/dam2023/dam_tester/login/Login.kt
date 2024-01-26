@@ -7,6 +7,9 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import pt.ipt.dam2023.dam_tester.R
+import pt.ipt.dam2023.dam_tester.fragmentos.Galeria
+import pt.ipt.dam2023.dam_tester.model.Fotos
+import pt.ipt.dam2023.dam_tester.model.Utilizador
 import pt.ipt.dam2023.dam_tester.model.Utilizadores
 import pt.ipt.dam2023.dam_tester.service.RetrofitInitializer
 import retrofit2.Call
@@ -31,8 +34,8 @@ class Login : AppCompatActivity() {
 
     }
 
-    fun checkEmailExistenceForLogin(emailToCheck: String, userList: List<User>): Boolean {
-        return userList.any { it.email == emailToCheck }
+    fun checkEmailExistenceForLogin(emailToCheck: String, userList: List<Utilizador>): Boolean {
+        return userList.any { it.mail == emailToCheck }
     }
 
     private fun enterLogin() {
@@ -42,7 +45,6 @@ class Login : AppCompatActivity() {
 
 
     }
-
 
     fun verificarConta(mail: EditText, pass: EditText, function: () -> Unit){
         var call = RetrofitInitializer().utilizadorService().getmail(mail)

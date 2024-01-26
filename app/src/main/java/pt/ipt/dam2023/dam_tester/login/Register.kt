@@ -1,6 +1,7 @@
 package pt.ipt.dam2023.dam_tester.login
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
@@ -12,10 +13,10 @@ import java.security.Provider.Service
 
 class Register: AppCompatActivity() {
 
-    var Nome: EditText = findViewById(R.id.RegisterNome)
-    var Email: EditText = findViewById(R.id.RegisterEmail)
-    var Password: EditText = findViewById(R.id.RegisterEmail)
-    var ConfirmPassword: EditText = findViewById(R.id.RepeatRegisterPass)
+    lateinit var Nome: EditText
+    lateinit var Email: EditText
+    lateinit var Password: EditText
+    lateinit var ConfirmPassword: EditText
 
     override fun onCreate(saveInstanceStae : Bundle?){
         super.onCreate(saveInstanceStae)
@@ -26,6 +27,12 @@ class Register: AppCompatActivity() {
 
         var btLog: Button = findViewById(R.id.btLog)
         btLog.setOnClickListener { passarParaAutenticacao() }
+
+        Nome = findViewById(R.id.RegisterNome)
+        Email= findViewById(R.id.RegisterEmail)
+        Password = findViewById(R.id.RegisterEmail)
+        ConfirmPassword= findViewById(R.id.RepeatRegisterPass)
+
     }
 
     // Validação de email retirado da internet
@@ -43,10 +50,10 @@ class Register: AppCompatActivity() {
     fun verificar(Nome: String, Email: String, Password: String, ConfirmPassword: String){
         if (Password == ConfirmPassword && isValidEmail(Email).equals(true)){
             RetrofitInitializer().utilizadorService().addUser(Nome, Password, Email)
-            RetrofitInitializer().utilizadorService().Authentication( Credentials.basic(
-                this.Email.toString(),
-                this.Password.toString()
-            ))
+            setContentView(R.layout.login)
+        }
+        else{
+            Log.e("Erro","Erro ao dar autenticação")
         }
     }
 

@@ -3,6 +3,10 @@ package pt.ipt.dam2023.dam_tester.fragmentos
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import pt.ipt.dam2023.dam_tester.R
+import pt.ipt.dam2023.dam_tester.adapters.ImageAdapter
 import pt.ipt.dam2023.dam_tester.model.Fotos
 import pt.ipt.dam2023.dam_tester.service.RetrofitInitializer
 import retrofit2.Call
